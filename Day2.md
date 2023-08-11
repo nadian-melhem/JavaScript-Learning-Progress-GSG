@@ -1,4 +1,4 @@
-#Day2 Summary
+# Day2 Summary
 
 ## Data Types :smile:
 - Strings
