@@ -38,13 +38,52 @@ const burnBook = [...oldBurns, ...newBurns];
 
 ## Day5 Challenges 
 #### QUESTION #1:
+```javascript
+function checkSign(num) {
+  return (num === 0) ? "zero"
+  : (num > 0) ? "positive"
+  : "negative";
+}
 
+checkSign(10);
+```
 #### 	QUESTION #2:
-
+```javascript
+const ratings = watchList.map(object => ({
+  title: object["Title"],
+  rating: object["imdbRating"]
+}));
+```
 #### 	QUESTION #3:
+```javascript
+const filteredList = watchList
+.filter(item => item.imdbRating  >= 8.0)
+.map(item => ({
+  title: item["Title"],
+  rating: item["imdbRating"]
+}));
+```
 
 #### 	QUESTION #4:
+```javascript
+function golfScore(par, strokes) {
+  // Only change code below this line
+return strokes === 1
+    ? names[0]
+    : strokes <= par - 2
+    ? names[1]
+    : strokes === par - 1
+    ? names[2]
+    : strokes === par
+    ? names[3]
+    : strokes === par + 1
+    ? names[4]
+    : strokes === par + 2
+    ? names[5]
+    : names[6];
+  // Only change code above this line
+}
 
-
+```
 
 
