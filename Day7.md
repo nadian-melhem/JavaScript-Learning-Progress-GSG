@@ -21,6 +21,22 @@ Takes in a function or passes out a function Just a term to describe these funct
 
 ## Day7 Challenge
 #### QUESTION #1:
+```javascript
+const squareList = arr => {
+ return arr
+ .filter(num => num>0 && num % parseInt(num) === 0)
+ .map(num => num * num)
+};
+
+```
 #### QUESTION #2:
-#### QUESTION #3:
+```javascript
+function urlSlug(title) {
+return title
+.toLowerCase()
+.trim()
+.split(/\s+/)
+.join("-");
+}
+```
 
