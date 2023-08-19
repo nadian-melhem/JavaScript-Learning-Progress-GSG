@@ -22,10 +22,57 @@ The Web APIs are a set of functions provided by the browser that the JavaScript 
 - setTimeout
 - promises
 
-
 ## Day8 Challenge
 #### QUESTION #1:
+```javascript
+function createCounter (start){
+    const counter = start;
+    function increment() {
+        counter++;
+        return counter;
+    }
+    return increment;
+}
+```
 #### QUESTION #2:
+```javascript
+function calculateAverage(nums) {
+    function calculateAvg() {
+        const sum = nums.reduce(
+            (sum, num) => {
+                return sum + num;
+            }, 0)
+        avg = sum / nums.length;
+        return avg;
+    }
+    return calculateAvg
+}
+```
 #### QUESTION #3:
-#### QUESTION #4:
+```javascript
+function powerOf(base) {
+    function calculate(exp) {
+        return Math.pow(base, exp);
+    }
+    return calculate;
+}
 
+
+```
+
+#### QUESTION #4:
+```javascript
+function compose(functions) {
+
+    function reverse(firstFunc) {
+        return functions.reduceRight((parameter, func) =>{ 
+            const newParameter = func(parameter);
+            return newParameter
+
+        }, firstFunc)
+
+    }
+    return reverse;
+
+}
+```
