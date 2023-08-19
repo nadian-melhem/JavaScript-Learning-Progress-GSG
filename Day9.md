@@ -22,8 +22,42 @@ A Promise is a proxy for a value not necessarily known when the promise is creat
 The then() method schedules callback functions for the eventual completion of a Promise — either fulfillment or rejection. It is the primitive method of promises
 
 
-## Day9 Challenge
-#### QUESTION #1:
-#### QUESTION #2:
-#### QUESTION #3:
+Day9 Challenge
+QUESTION #1:
+```javascript
+function convertToPromise(callback) {
+    return new Promise(resolve => callback(resolve));
 
+}
+
+const executeInSequenceWithCBs = (tasks, callback) => {
+    let promises = [];
+    for (let i = 0; i < tasks.length; i++) {
+        promises.push(convertToPromise(tasks[i]));
+    }
+   return Promise.all(promises).then((values) => {
+        values.map(task => callback(task))
+    })
+}
+
+```
+QUESTION #2:
+```javascript
+async function fetchApi(api) {
+  const response = await fetch(api.apiUrl);
+  return response.json();
+}
+
+const executeInParallelWithPromises = (apis) => {
+  const promises = apis.map(fetchApi);
+  return Promise.all(promises).then((responses) => {
+    return responses.map((response, index) => {
+      return {
+        ...apis[index],
+        apiData: response,
+      };
+    });
+  });
+};
+```
+QUESTION #3:
