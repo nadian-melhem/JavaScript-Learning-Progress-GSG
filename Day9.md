@@ -22,8 +22,10 @@ A Promise is a proxy for a value not necessarily known when the promise is creat
 The then() method schedules callback functions for the eventual completion of a Promise — either fulfillment or rejection. It is the primitive method of promises
 
 
-Day9 Challenge
-QUESTION #1:
+
+## Day9 Challenges
+
+### QUESTION #1:
 ```javascript
 function convertToPromise(callback) {
     return new Promise(resolve => callback(resolve));
@@ -41,7 +43,7 @@ const executeInSequenceWithCBs = (tasks, callback) => {
 }
 
 ```
-QUESTION #2:
+### QUESTION #2:
 ```javascript
 async function fetchApi(api) {
   const response = await fetch(api.apiUrl);
@@ -60,4 +62,41 @@ const executeInParallelWithPromises = (apis) => {
   });
 };
 ```
-QUESTION #3:
+### QUESTION #3:
+```javascript
+const apis = [
+  {
+    apiName: "products", 
+    apiUrl: "https://dummyjson.com/products",
+  }, 
+  {
+    apiName: "users", 
+    apiUrl: "https://dummyjson.com/users",
+  }, 
+  {
+    apiName: "posts", 
+    apiUrl: "https://dummyjson.com/posts",
+  }, 
+  {
+    apiName: "comments", 
+    apiUrl: "https://dummyjson.com/comments",
+  }
+]
+async function fetchApi(api) {
+  const response = await fetch(api.apiUrl);
+  return response.json();
+}
+const executeInSequenceWithPromises = (apis) => {
+  const promises = apis.map(api => fetchApi(api));
+  let responses = [];
+  for (let i = 0; i < promises.length; i++) {
+    Promise.resolve(promises[i]).then((response) => {
+      return responses.push({...apis[i], apiData : response});
+    })
+  }
+  return responses;
+
+}
+
+```
+
